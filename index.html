@@ -1,8 +1,35 @@
-# Klasörü oluştur ve içine gir
-mkdir file && cd file
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dosya İndir - Güvenli Paylaşım</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #121212; color: white; margin: 0; }
+        .card { text-align: center; background: #1e1e1e; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .btn { background: #007bff; color: white; padding: 15px 30px; border: none; border-radius: 8px; font-size: 18px; cursor: pointer; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .btn:hover { background: #0056b3; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Dosyanız Hazır</h2>
+        <p>Butona tıklayarak indirmeyi başlatabilirsiniz.</p>
+        <a id="downloadBtn" class="btn" href="#">Dosyayı İndir (Mavi Buton)</a>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileName = urlParams.get('file');
+        // Senin Supabase linkin burası:
+        const supabaseUrl = "https://oqzjjtsylvrwnxbrkhbk.supabase.co/storage/v1/object/public/files/";
 
-# GitHub'daki mevcut dosyaları telefonuna çek (Senkronize et)
-git init
-git remote add origin https://github.com/dilekarkun6/file.git
-git pull origin main
+        if (fileName) {
+            document.getElementById('downloadBtn').href = supabaseUrl + fileName;
+        } else {
+            document.querySelector('.card h2').innerText = "Hata: Dosya Belirtilmedi!";
+        }
+    </script>
+</body>
+</html>
+
 
