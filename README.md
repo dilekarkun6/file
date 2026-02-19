@@ -1,1 +1,1 @@
-This file is actually irrelevant.
+Disclaimer: This tool is provided for legitimate use cases only. The developer assumes no liability and is not responsible for any misuse or damage caused by this program. Users are solely responsible for complying with local laws and regulations.
